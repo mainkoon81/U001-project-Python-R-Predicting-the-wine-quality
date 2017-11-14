@@ -31,10 +31,10 @@ Input variables (based on physicochemical tests):
 Output variable (based on sensory data): 
   - 12 - quality (score between 0 and 10)
 
-__Story:__ 
+__Investigation:__ What chemical charateristics are most important in predicting the quality of wine? 
 
-__Investigation:__ Any differe
-
+1> import the data set
+```
 
 
 

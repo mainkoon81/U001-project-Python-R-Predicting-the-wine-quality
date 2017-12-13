@@ -193,7 +193,12 @@ low_alcohol['quality'].mean()
 high_alcohol['quality'].mean()
 ```
 
-
+#Plotting to display our findings regarding the associations b/w quality and some properties
+ - ABOUT--- Q1: Is a certain type of wine (red or white) associated with higher quality?:
+```
+df_wine.groupby('color')['quality'].mean().plot(kind='bar', title='Avg Quality by Color', color = ['red', 'white'] , alpha=0.7)
+```
+<img src="https://user-images.githubusercontent.com/31917400/33967735-a3f36686-e05c-11e7-8f8a-5f4697c781ce.jpg" width="200" height="160" />
 
 
 

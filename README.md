@@ -33,7 +33,7 @@ Output variable (based on sensory data):
 
 __Investigation:__ What chemical charateristics are most important in predicting the quality of wine? 
 
-1> import and wrangle the data set
+1> import the dataset
 ```
 df_red = pd.read_csv('C:/Users/Minkun/Desktop/classes_1/NanoDeg/1.Data_AN/L3/case01/data/winequality-red.csv', sep=';')
 df_red.info()
@@ -47,12 +47,19 @@ df_white.describe()
 <img src="https://user-images.githubusercontent.com/31917400/33953018-7e646d10-e02b-11e7-92a2-7404bf419d7a.jpg" />
 <img src="https://user-images.githubusercontent.com/31917400/33953024-82897f48-e02b-11e7-9ba6-b98f69e09d52.jpg" />
 
-
-
-
-
-
-
+2> wrangle the dataset
+#Change col_name ? 
+```
+df_red = df_red.rename(columns = {'total sulfur dioxide': 'total_sulfur_dioxide'})
+```
+#How many duplicate rows are in the white wine dataset? 
+```
+sum(df_white.duplicated())
+```
+#Do we need to drop?
+```
+df_white.drop_duplicates(inplace=True)
+```
 
 
 

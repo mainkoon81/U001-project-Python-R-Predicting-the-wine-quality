@@ -149,13 +149,17 @@ df_wine['pH'].describe()
    - Labels for the four acidity level groups - min/25%/50%/75%/max
    - Creates new 'acidity_levels' column
    - Checks for successful creation of this column
+   - The 'cut()' can be useful for going from a continuous variable to a categorical variable. For example, cut could convert ages
+to groups of age ranges. Any NA values will be NA in the result. Out of bounds values will be NA in the resulting Categorical 
+object. >>> pd.cut(np.array([.2, 1.4, 2.5, 6.2, 9.7, 2.1]), 3, labels=["good", "medium", "bad"])
 ```
 bin_edges = [2.72,3.11,3.21,3.32,4.01] 
 bin_names = ['very_high','high','medium','low'] 
 df_wine['acidity_levels'] = pd.cut(df_wine['pH'], bin_edges, labels=bin_names)
 df_wine.head()
 ```
-<img src="https://user-images.githubusercontent.com/31917400/33966541-dc013436-e057-11e7-91c1-3001effcd373.jpg" width="350" height="70" />
+<img src="https://user-images.githubusercontent.com/31917400/33966541-dc013436-e057-11e7-91c1-3001effcd373.jpg" width="350" height="80" />
+
 
 
 

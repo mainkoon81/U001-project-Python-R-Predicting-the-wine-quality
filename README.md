@@ -95,7 +95,7 @@ __3> Visual Exploration__#df_wine['fixed acidity'].plot(kind='hist')
 #df_wine['pH'].plot(kind='hist')
 df_wine['alcohol'].plot(kind='hist')
 
-#Histogram -Fixed Acidity, Total Sulfur Dioxide, pH, Alcohol
+#Histogram -Fixed Acidity, Total Sulfur Dioxide, pH, Alcohol..How they look like?
 ```
 df_wine['fixed acidity'].plot(kind='hist')
 df_wine['total_sulfur_dioxide'].plot(kind='hist')
@@ -104,7 +104,7 @@ df_wine['alcohol'].plot(kind='hist')
 ```
 <img src="https://user-images.githubusercontent.com/31917400/33957203-e1433756-e038-11e7-8fd6-842ddcb08d4c.jpg" />
 
-#Scatter plot - Quality(response) VS. Fixed Acidity, Total Sulfur Dioxide, pH, Alcohol. This seems most likely to have a positive impact on quality.
+#Scatter plot - Quality(response) VS. Fixed Acidity, Total Sulfur Dioxide, pH, Alcohol. Alcohol seems most likely to have a positive impact on quality.
 ```
 df_wine.plot(x='quality', y='fixed acidity', kind='scatter') 
 df_wine.plot(x='quality', y='total_sulfur_dioxide', kind='scatter') 
@@ -114,10 +114,20 @@ df_wine.plot(x='quality', y='alcohol', kind='scatter')
 <img src="https://user-images.githubusercontent.com/31917400/33957833-a90b5754-e03a-11e7-926e-4c7aed1a73b1.jpg" />
 
 #How to group the data and aggregate information about these groups or perform group-specific transformation ?
- - we can find mean - fixed acidity, Total_Sulfur_Dioxide, pH, alcohol- for all samples...but WHAT IF we need the mean for each quality rating? For example, mean pH level for all samples of the quality rating of 7? # groupby() is used to designate 'muti-categorical' variable?
+ - we can find mean - fixed acidity, Total_Sulfur_Dioxide, pH, alcohol- for all samples.
+ - but WHAT IF we need the mean for each quality rating? For example, mean pH level for all samples of the quality rating of 7? Here, 'groupby()' is used to designate those 'muti-category' variables! 
 ```
 df_wine.mean()
 df_wine.groupby('quality').mean() 
 ```
+<img src="https://user-images.githubusercontent.com/31917400/33958321-f91f19a0-e03b-11e7-9deb-33d5175c4a1f.jpg" width="350" height="100" />
+
+#We could even split it further with multiple columns by providing a list (of categorical variables).
+```
+df_wine.groupby(['quality','color']).mean()
+```
+<img src="https://user-images.githubusercontent.com/31917400/33958565-9fcb4a1c-e03c-11e7-9f09-20c6ae31e39f.jpg" width="350" height="180" />
+
+
 
 

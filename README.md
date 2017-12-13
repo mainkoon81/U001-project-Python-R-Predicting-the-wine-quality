@@ -125,16 +125,16 @@ df_wine.groupby(['quality','color']).mean()
 ```
 <img src="https://user-images.githubusercontent.com/31917400/33958565-9fcb4a1c-e03c-11e7-9f09-20c6ae31e39f.jpg" width="350" height="180" />
 
-#**Q. Is a certain type of wine (red or white) associated with higher quality?** Find the mean quality of each wine type (red and white) with groupby.
+#**Q1. Is a certain type of wine (red or white) associated with higher quality?** Find the mean quality of each wine type (red and white) with groupby.
 ```
 df_wine.groupby('color').mean()
 ```
 <img src="https://user-images.githubusercontent.com/31917400/33965948-b0ab49d6-e055-11e7-9fe0-86a43d03bca6.jpg" width="350" height="50" />
 
-#**Q. What level of acidity (pH value) receives the highest average rating?:** 
+#**Q2. What level of acidity (pH value) receives the highest average rating?:** 
  - This question is more tricky because unlike color, which has clear categories you can group by (red and white), pH is a quantitative variable without clear categories. 
  - However, there is a simple fix to this. You can create a categorical variable from a quantitative variable by creating your own categories. 
- - Pandas 'cut()' function that let you "cut" data in groups. Using this, create a new column called 'acidity_levels' with these categories:
+ - Pandas **'cut()'** function that let you "cut" data in groups. Using this, create a new column called 'acidity_levels' with these categories:
    - Acidity Levels:
      - High: Lowest 25% of pH values
      - Moderately High: 25% - 50% of pH values
@@ -164,12 +164,34 @@ df_wine.head()
 ```
 df_wine.groupby('acidity_levels')['quality'].mean()
 ```
-<img src="https://user-images.githubusercontent.com/31917400/33966902-33563dca-e059-11e7-8520-3b3acbfea0d5.jpg" width="350" height="40" />
+<img src="https://user-images.githubusercontent.com/31917400/33966902-33563dca-e059-11e7-8520-3b3acbfea0d5.jpg" width="350" height="60" />
 
+#**Q3. Do wines with higher alcoholic content receive better ratings?** 
+ - To answer this question, use **'query()'** function to create two groups of wine samples: 
+   - Low alcohol (samples with an alcohol content less than the median)
+   - High alcohol (samples with an alcohol content greater than or equal to the median)
+   - Then, find the mean quality rating of each group.
+ - Get the median amount of alcohol content
+```
+df_wine['alcohol'].median()
+```
+ - Select samples with alcohol content less than the median and / greater than or equal to the median
+```
+#low_alcohol = df_wine[df_wine['alcohol'] < 10.3]
+low_alcohol = df_wine.query('alcohol < 10.3')
 
+#high_alcohol = df_wine[df_wine['alcohol'] >= 10.3]
+high_alcohol = df_wine.query('alcohol >= 10.3')
 
-
-
+# ensure these queries included each sample exactly once
+num_samples = df_wine.shape[0] #total num of rows? 
+num_samples == low_alcohol['quality'].count() + high_alcohol['quality'].count() # should be True
+```
+ - # Get the mean quality rating for the low alcohol and high alcohol groups
+```
+low_alcohol['quality'].mean()
+high_alcohol['quality'].mean()
+```
 
 
 

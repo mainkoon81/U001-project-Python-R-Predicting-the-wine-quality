@@ -160,7 +160,11 @@ df_wine.head()
 ```
 <img src="https://user-images.githubusercontent.com/31917400/33966541-dc013436-e057-11e7-91c1-3001effcd373.jpg" width="350" height="80" />
 
-
+ - Find the mean quality of each acidity level with groupby
+```
+df_wine.groupby('acidity_levels')['quality'].mean()
+```
+<img src="https://user-images.githubusercontent.com/31917400/33966902-33563dca-e059-11e7-8520-3b3acbfea0d5.jpg" width="350" height="40" />
 
 
 

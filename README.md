@@ -189,8 +189,8 @@ num_samples == low_alcohol['quality'].count() + high_alcohol['quality'].count() 
 ```
  - Get the mean quality rating for the low alcohol and high alcohol groups
 ```
-low_alcohol['quality'].mean()
-high_alcohol['quality'].mean()
+low_alcohol['quality'].mean() #5.48
+high_alcohol['quality'].mean() #6.15
 ```
 
 #Plotting to display our findings regarding the associations b/w quality and some properties
@@ -198,7 +198,7 @@ high_alcohol['quality'].mean()
 ```
 df_wine.groupby('color')['quality'].mean().plot(kind='bar', title='Avg Quality by Color', color = ['red', 'white'] , alpha=0.7)
 ```
- - Improving I. Set xlabel, ylabel...=> plt is useful!
+ - Improving the plot-I: Set xlabel, ylabel...=> plt is useful!
 ```
 colors=['red', 'white'] 
 color_means = df_wine.groupby('color')['quality'].mean()
@@ -208,6 +208,13 @@ plt.xlabel('Colors', fontsize=18) #from the plt-plot
 plt.ylabel('Quality', fontsize=18)
 ```
 <img src="https://user-images.githubusercontent.com/31917400/33968417-ab0854b0-e05f-11e7-9893-b103b71683be.jpg" width="400" height="160" />
+
+ - Improving the plot-II: Get more details on where this difference is coming from.
+```
+counts = df_wine.groupby(['quality', 'color']).count(); counts # think..['quality','color'] != ['color','quality']
+```
+<img src="https://user-images.githubusercontent.com/31917400/33968607-bfd0f2fc-e060-11e7-985a-55b56f43759a.jpg" width="500" height="200" />
+
 
 
 

@@ -33,7 +33,7 @@ Output variable (based on sensory data):
 
 __Investigation:__ What chemical charateristics are most important in predicting the quality of wine? 
 
-1> import the dataset
+__1> import the dataset__
 ```
 df_red = pd.read_csv('C:/Users/Minkun/Desktop/classes_1/NanoDeg/1.Data_AN/L3/case01/data/winequality-red.csv', sep=';')
 df_red.info()
@@ -47,12 +47,8 @@ df_white.describe()
 <img src="https://user-images.githubusercontent.com/31917400/33953018-7e646d10-e02b-11e7-92a2-7404bf419d7a.jpg" />
 <img src="https://user-images.githubusercontent.com/31917400/33953024-82897f48-e02b-11e7-9ba6-b98f69e09d52.jpg" />
 
-2> wrangle the dataset
+__2> wrangle the dataset__
 
-#Change col_name ? 
-```
-df_red = df_red.rename(columns = {'total sulfur dioxide': 'total_sulfur_dioxide'})
-```
 #How many duplicate rows are in the dataset ? 
 ```
 sum(df_white.duplicated())
@@ -66,13 +62,33 @@ df_white.drop_duplicates(inplace=True)
 df_red['quality'].nunique()
 df_white['quality'].nunique()
 ```
+#Combine two data set
+ - First, add new column telling Red/White to preserve the characteristics.
+ - Creating two arrays using numpy as long as the number of rows in the red and white dataframes that repeat the value “red” or “white” and add that as a column into each dataframe.
+```
+color_red = np.repeat('red', 1599)
+color_white = np.repeat('white', 4898)
+```
+#Add arrays to the red and white dataframes by setting a new column called 'color' to the appropriate array.
+```
+df_red['color'] = color_red
+df_white['color'] = color_white
+```
+#Combine DataFrames with 'append()'
+```
+df_wine = df_red.append(df_white, ignore_index=True) 
+df_wine.tail()
+```
+<img src="https://user-images.githubusercontent.com/31917400/33956444-78317720-e036-11e7-8eb3-b2c5df8606a9.jpg" width="350" height="100" />
 
-
-
-
-
-
-
+#Oops, Error! so we need to change col_name of 'df_white' as well.
+```
+df_white = df_white.rename(columns = {'total sulfur dioxide': 'total_sulfur_dioxide'})
+```
+#Save your newly combined dataframe as winequality_edited.csv. Remember, set index=False to avoid saving with an unnamed column!
+```
+df_wine.to_csv('winequality_edited.csv', index=False)
+```
 
 
 

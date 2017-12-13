@@ -62,7 +62,7 @@ df_white.drop_duplicates(inplace=True)
 df_red['quality'].nunique()
 df_white['quality'].nunique()
 ```
-#Combine two data set
+#Combine two datasets
  - First, add new column telling Red/White to preserve the characteristics.
  - Creating two arrays using numpy as long as the number of rows in the red and white dataframes that repeat the value “red” or “white” and add that as a column into each dataframe.
 ```
@@ -90,10 +90,7 @@ df_white = df_white.rename(columns = {'total sulfur dioxide': 'total_sulfur_diox
 df_wine.to_csv('winequality_edited.csv', index=False)
 ```
 
-__3> Visual Exploration__#df_wine['fixed acidity'].plot(kind='hist')
-#df_wine['total_sulfur_dioxide'].plot(kind='hist')
-#df_wine['pH'].plot(kind='hist')
-df_wine['alcohol'].plot(kind='hist')
+__3> Explore the dataset__
 
 #Histogram -Fixed Acidity, Total Sulfur Dioxide, pH, Alcohol..How they look like?
 ```
@@ -113,8 +110,8 @@ df_wine.plot(x='quality', y='alcohol', kind='scatter')
 ```
 <img src="https://user-images.githubusercontent.com/31917400/33957833-a90b5754-e03a-11e7-926e-4c7aed1a73b1.jpg" />
 
-#How to group the data and aggregate information about these groups or perform group-specific transformation ?
- - we can find mean - fixed acidity, Total_Sulfur_Dioxide, pH, alcohol- for all samples.
+#How to group the data and **aggregate information** about these groups or perform group-specific transformation ?
+ - For example, we can find mean - fixed acidity, Total_Sulfur_Dioxide, pH, alcohol- for all samples.
  - but WHAT IF we need the mean for each quality rating? For example, mean pH level for all samples of the quality rating of 7? Here, 'groupby()' is used to designate those 'muti-category' variables! 
 ```
 df_wine.mean()

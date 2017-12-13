@@ -125,6 +125,58 @@ df_wine.groupby(['quality','color']).mean()
 ```
 <img src="https://user-images.githubusercontent.com/31917400/33958565-9fcb4a1c-e03c-11e7-9f09-20c6ae31e39f.jpg" width="350" height="180" />
 
+#**Q. Is a certain type of wine (red or white) associated with higher quality?** Find the mean quality of each wine type (red and white) with groupby.
+```
+df_wine.groupby('color').mean()
+```
+<img src="https://user-images.githubusercontent.com/31917400/33965948-b0ab49d6-e055-11e7-9fe0-86a43d03bca6.jpg" width="350" height="50" />
+
+#**Q. What level of acidity (pH value) receives the highest average rating?:** 
+ - This question is more tricky because unlike color, which has clear categories you can group by (red and white), pH is a quantitative variable without clear categories. 
+ - However, there is a simple fix to this. You can create a categorical variable from a quantitative variable by creating your own categories. 
+ - Pandas 'cut()' function that let you "cut" data in groups. Using this, create a new column called 'acidity_levels' with these categories:
+   - Acidity Levels:
+     - High: Lowest 25% of pH values
+     - Moderately High: 25% - 50% of pH values
+     - Medium: 50% - 75% of pH values
+     - Low: 75% - max pH value 
+ - View the min, 25%, 50%, 75%, max pH values with Pandas describe(). Here, the data is able to be split at the 25th, 50th, and 75th percentile.After you create these four categories, you'll be able to use groupby to get the mean quality rating for each acidity level. 
+```
+df_wine['pH'].describe()
+```
+ - Adding new categorical column!
+   - Bin edges that will be used to "cut" the data into groups
+   - Labels for the four acidity level groups - min/25%/50%/75%/max
+   - Creates new 'acidity_levels' column
+   - Checks for successful creation of this column
+```
+bin_edges = [2.72,3.11,3.21,3.32,4.01] 
+bin_names = ['very_high','high','medium','low'] 
+df_wine['acidity_levels'] = pd.cut(df_wine['pH'], bin_edges, labels=bin_names)
+df_wine.head()
+```
+<img src="https://user-images.githubusercontent.com/31917400/33966541-dc013436-e057-11e7-91c1-3001effcd373.jpg" width="350" height="70" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

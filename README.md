@@ -90,8 +90,19 @@ df_white = df_white.rename(columns = {'total sulfur dioxide': 'total_sulfur_diox
 df_wine.to_csv('winequality_edited.csv', index=False)
 ```
 
+__3> Visual Exploration__#df_wine['fixed acidity'].plot(kind='hist')
+#df_wine['total_sulfur_dioxide'].plot(kind='hist')
+#df_wine['pH'].plot(kind='hist')
+df_wine['alcohol'].plot(kind='hist')
 
-
+#Histogram -Fixed Acidity, Total Sulfur Dioxide, pH, Alcohol
+```
+df_wine['fixed acidity'].plot(kind='hist')
+df_wine['total_sulfur_dioxide'].plot(kind='hist')
+df_wine['pH'].plot(kind='hist')
+df_wine['alcohol'].plot(kind='hist')
+```
+<img src="https://user-images.githubusercontent.com/31917400/33957203-e1433756-e038-11e7-8fd6-842ddcb08d4c.jpg" width="350" height="100" />
 
 
 

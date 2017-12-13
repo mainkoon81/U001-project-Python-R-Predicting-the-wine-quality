@@ -198,10 +198,16 @@ high_alcohol['quality'].mean()
 ```
 df_wine.groupby('color')['quality'].mean().plot(kind='bar', title='Avg Quality by Color', color = ['red', 'white'] , alpha=0.7)
 ```
-<img src="https://user-images.githubusercontent.com/31917400/33967735-a3f36686-e05c-11e7-8f8a-5f4697c781ce.jpg" width="200" height="160" />
+ - Improving I. Set xlabel, ylabel...=> plt is useful!
+```
+colors=['red', 'white'] 
+color_means = df_wine.groupby('color')['quality'].mean()
+color_means.plot(kind='bar', title='Avg Quality by Color', color = colors) #from the pd-plot
 
-
-
+plt.xlabel('Colors', fontsize=18) #from the plt-plot
+plt.ylabel('Quality', fontsize=18)
+```
+<img src="https://user-images.githubusercontent.com/31917400/33968417-ab0854b0-e05f-11e7-9893-b103b71683be.jpg" width="400" height="160" />
 
 
 

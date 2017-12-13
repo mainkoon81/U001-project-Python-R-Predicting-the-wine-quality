@@ -37,13 +37,15 @@ __Investigation:__ What chemical charateristics are most important in predicting
 ```
 df_red = pd.read_csv('C:/Users/Minkun/Desktop/classes_1/NanoDeg/1.Data_AN/L3/case01/data/winequality-red.csv', sep=';')
 df_red.info()
-df_red.head()
+df_red.head(10)
 df_red.describe()
 df_white = pd.read_csv('C:/Users/Minkun/Desktop/classes_1/NanoDeg/1.Data_AN/L3/case01/data/winequality-white.csv', sep=';')
 df_white.info()
-df_white.head()
+df_white.head(10)
 df_white.describe()
 ```
+<img src="https://user-images.githubusercontent.com/31917400/33953018-7e646d10-e02b-11e7-92a2-7404bf419d7a.jpg" />
+<img src="https://user-images.githubusercontent.com/31917400/33953024-82897f48-e02b-11e7-9ba6-b98f69e09d52.jpg" />
 
 
 

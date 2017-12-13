@@ -48,20 +48,24 @@ df_white.describe()
 <img src="https://user-images.githubusercontent.com/31917400/33953024-82897f48-e02b-11e7-9ba6-b98f69e09d52.jpg" />
 
 2> wrangle the dataset
+
 #Change col_name ? 
 ```
 df_red = df_red.rename(columns = {'total sulfur dioxide': 'total_sulfur_dioxide'})
 ```
-#How many duplicate rows are in the white wine dataset? 
+#How many duplicate rows are in the dataset ? 
 ```
 sum(df_white.duplicated())
 ```
-#Do we need to drop?
+#How to drop the rows ?
 ```
 df_white.drop_duplicates(inplace=True)
 ```
-
-
+#How many unique values in 'quality' (response variable) column ?
+```
+df_red['quality'].nunique()
+df_white['quality'].nunique()
+```
 
 
 

@@ -29,7 +29,7 @@ Input variables (based on physicochemical tests):
   - 11 - alcohol 
 
 Output variable (based on sensory data): 
-  - 12 - quality (score between 0 and 10)
+  - 12 - **quality** (score between 0 and 10)
 
 __Investigation:__ What chemical charateristics are most important in predicting the quality of wine? 
 
@@ -57,7 +57,7 @@ sum(df_white.duplicated())
 ```
 df_white.drop_duplicates(inplace=True)
 ```
-#How many unique values in 'quality' (response variable) column ?
+#How many unique values in 'quality' (**categorical response variable**) column ?
 ```
 df_red['quality'].nunique()
 df_white['quality'].nunique()

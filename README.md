@@ -102,9 +102,22 @@ df_wine['total_sulfur_dioxide'].plot(kind='hist')
 df_wine['pH'].plot(kind='hist')
 df_wine['alcohol'].plot(kind='hist')
 ```
-<img src="https://user-images.githubusercontent.com/31917400/33957203-e1433756-e038-11e7-8fd6-842ddcb08d4c.jpg" width="350" height="100" />
+<img src="https://user-images.githubusercontent.com/31917400/33957203-e1433756-e038-11e7-8fd6-842ddcb08d4c.jpg" />
 
+#Scatter plot - Quality(response) VS. Fixed Acidity, Total Sulfur Dioxide, pH, Alcohol. This seems most likely to have a positive impact on quality.
+```
+df_wine.plot(x='quality', y='fixed acidity', kind='scatter') 
+df_wine.plot(x='quality', y='total_sulfur_dioxide', kind='scatter') 
+df_wine.plot(x='quality', y='pH', kind='scatter')
+df_wine.plot(x='quality', y='alcohol', kind='scatter') 
+```
+<img src="https://user-images.githubusercontent.com/31917400/33957833-a90b5754-e03a-11e7-926e-4c7aed1a73b1.jpg" />
 
-
+#How to group the data and aggregate information about these groups or perform group-specific transformation ?
+ - we can find mean - fixed acidity, Total_Sulfur_Dioxide, pH, alcohol- for all samples...but WHAT IF we need the mean for each quality rating? For example, mean pH level for all samples of the quality rating of 7? # groupby() is used to designate 'muti-categorical' variable?
+```
+df_wine.mean()
+df_wine.groupby('quality').mean() 
+```
 
 

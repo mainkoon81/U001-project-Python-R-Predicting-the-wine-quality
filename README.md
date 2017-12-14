@@ -311,7 +311,45 @@ plt.ylabel('Average Quality Rating')
 ```
 sns.set_style('darkgrid')
 ```
+> Create arrays for red bar heights white bar heights. There's a bar for each combination of 'color' and 'quality rating'. Each bar's height is based on the proportion of samples of that color with that quality rating.
+ - #1. Red bar proportions = counts for each quality rating / total # of red samples
+ - #2. White bar proportions = counts for each quality rating / total # of white samples
+ - Get counts for each rating and color
+``` 
+color_counts = df_wine.groupby(['color', 'quality']).count()['pH']; color_counts
+```
+ - Get total counts for each color
+```
+color_totals = df_wine.groupby('color').count()['pH']; color_totals
+```
+ - Get proportions by dividing red rating counts by total # of red samples
+``` 
+red_proportions = color_counts['red'] / color_totals['red']; red_proportions
+```
+ - Get proportions by dividing white rating counts by total # of white samples
+```
+white_proportions = color_counts['white'] / color_totals['white']; white_proportions
+```
+> Plot proportions on a bar chart.
+ - Set the x coordinate location for each rating group and and width of each bar.
+```
+ind = np.arange(len(red_proportions))  # the x locations for the groups
+width = 0.35       # the width of the bars
+```
+ - Plot bars
+``` 
+red_bars = plt.bar(ind, red_proportions, width, color='r', alpha=.7, label='Red Wine')
+white_bars = plt.bar(ind + width, white_proportions, width, color='w', alpha=.7, label='White Wine')
+```
+ - title and labels and legend
+``` 
+plt.ylabel('Proportion')
+plt.xlabel('Quality')
+plt.title('Proportion by Wine Color and Quality')
+locations = ind + width / 2  # xtick locations
+labels = ['3', '4', '5', '6', '7', '8', '9']  # xtick labels
+plt.xticks(locations, labels)
 
-
-
+plt.legend()
+```
 

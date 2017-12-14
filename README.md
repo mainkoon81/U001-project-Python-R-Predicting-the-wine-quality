@@ -49,50 +49,50 @@ df_white.describe()
 
 __2> wrangle the dataset__
 
-#How many duplicate rows are in the dataset ? 
+#### *How many duplicate rows are in the dataset ? 
 ```
 sum(df_white.duplicated())
 ```
-#How to drop the rows ?
+#### *How to drop the rows ?
 ```
 df_white.drop_duplicates(inplace=True)
 ```
-#How many unique values in 'quality' (**categorical response variable**) column ?
+#### *How many unique values in 'quality' (**categorical response variable**) column ?
 ```
 df_red['quality'].nunique()
 df_white['quality'].nunique()
 ```
-#Combine two datasets
+#### *Combine two datasets
  - First, add new column telling Red/White to preserve the characteristics.
  - Creating two arrays using numpy as long as the number of rows in the red and white dataframes that repeat the value “red” or “white” and add that as a column into each dataframe.
 ```
 color_red = np.repeat('red', 1599)
 color_white = np.repeat('white', 4898)
 ```
-#Add arrays to the red and white dataframes by setting a new column called 'color' to the appropriate array.
+#### *Add arrays to the red and white dataframes by setting a new column called 'color' to the appropriate array.
 ```
 df_red['color'] = color_red
 df_white['color'] = color_white
 ```
-#Combine DataFrames with 'append()'
+#### *Combine DataFrames with 'append()'
 ```
 df_wine = df_red.append(df_white, ignore_index=True) 
 df_wine.tail()
 ```
 <img src="https://user-images.githubusercontent.com/31917400/33956444-78317720-e036-11e7-8eb3-b2c5df8606a9.jpg" width="350" height="100" />
 
-#Oops, Error! so we need to change col_name of 'df_white' as well.
+#### *Oops, Error! so we need to change col_name of 'df_white' as well.
 ```
 df_white = df_white.rename(columns = {'total sulfur dioxide': 'total_sulfur_dioxide'})
 ```
-#Save your newly combined dataframe as winequality_edited.csv. Remember, set index=False to avoid saving with an unnamed column!
+#### *Save your newly combined dataframe as winequality_edited.csv. Remember, set index=False to avoid saving with an unnamed column!
 ```
 df_wine.to_csv('winequality_edited.csv', index=False)
 ```
 
 __3> Explore the dataset__
 
-#### Histogram -Fixed Acidity, Total Sulfur Dioxide, pH, Alcohol..How they look like?
+#### *Histogram -Fixed Acidity, Total Sulfur Dioxide, pH, Alcohol..How they look like?
 ```
 df_wine['fixed acidity'].plot(kind='hist')
 df_wine['total_sulfur_dioxide'].plot(kind='hist')
@@ -101,7 +101,7 @@ df_wine['alcohol'].plot(kind='hist')
 ```
 <img src="https://user-images.githubusercontent.com/31917400/33957203-e1433756-e038-11e7-8fd6-842ddcb08d4c.jpg" />
 
-#Scatter plot - Quality(response) VS. Fixed Acidity, Total Sulfur Dioxide, pH, Alcohol. Alcohol seems most likely to have a positive impact on quality.
+#### *Scatter plot - Quality(response) VS. Fixed Acidity, Total Sulfur Dioxide, pH, Alcohol. Alcohol seems most likely to have a positive impact on quality.
 ```
 df_wine.plot(x='quality', y='fixed acidity', kind='scatter') 
 df_wine.plot(x='quality', y='total_sulfur_dioxide', kind='scatter') 
@@ -110,7 +110,7 @@ df_wine.plot(x='quality', y='alcohol', kind='scatter')
 ```
 <img src="https://user-images.githubusercontent.com/31917400/33957833-a90b5754-e03a-11e7-926e-4c7aed1a73b1.jpg" />
 
-#### How to group the data and **aggregate information** about these groups or perform group-specific transformation ?
+#### *How to group the data and **aggregate information** about these groups or perform group-specific transformation ?
  - For example, we can find mean - fixed acidity, Total_Sulfur_Dioxide, pH, alcohol- for all samples.
  - but WHAT IF we need the mean for each quality rating? For example, mean pH level for all samples of the quality rating of 7? Here, 'groupby()' is used to designate those 'muti-category' variables! 
 ```
@@ -119,7 +119,7 @@ df_wine.groupby('quality').mean()
 ```
 <img src="https://user-images.githubusercontent.com/31917400/33958321-f91f19a0-e03b-11e7-9deb-33d5175c4a1f.jpg" width="350" height="100" />
 
-#We could even split it further with multiple columns by providing a list (of categorical variables).
+#### *We could even split it further with multiple columns by providing a list (of categorical variables).
 ```
 df_wine.groupby(['quality','color']).mean()
 ```
@@ -193,7 +193,7 @@ low_alcohol['quality'].mean() #5.48 rating
 high_alcohol['quality'].mean() #6.15 rating
 ```
 
-#### Plotting to display our findings regarding the associations b/w quality and some properties
+#### *Plotting to display our findings regarding the associations b/w quality and some properties
  - ABOUT--- Q1: Is a certain type of wine (red or white) associated with higher quality?:
 ```
 df_wine.groupby('color')['quality'].mean().plot(kind='bar', title='Avg Quality by Color', color = ['red', 'white'] , alpha=0.7)
@@ -243,7 +243,7 @@ As can be seen, for the lower ratings -3/4/5, 'red' shows higher proportion. and
 
 <img src="https://user-images.githubusercontent.com/31917400/33968829-f01b2b8e-e061-11e7-99b5-9dd091118b89.jpg" width="600" height="200" />
 
-#### Further customization in Matplotlib. It gives us much more control over our visualizations.
+#### *Further customization in Matplotlib. It gives us much more control over our visualizations.
 
 
 

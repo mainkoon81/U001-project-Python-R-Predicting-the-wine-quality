@@ -92,7 +92,7 @@ df_wine.to_csv('winequality_edited.csv', index=False)
 
 __3> Explore the dataset__
 
-#Histogram -Fixed Acidity, Total Sulfur Dioxide, pH, Alcohol..How they look like?
+#### Histogram -Fixed Acidity, Total Sulfur Dioxide, pH, Alcohol..How they look like?
 ```
 df_wine['fixed acidity'].plot(kind='hist')
 df_wine['total_sulfur_dioxide'].plot(kind='hist')
@@ -110,7 +110,7 @@ df_wine.plot(x='quality', y='alcohol', kind='scatter')
 ```
 <img src="https://user-images.githubusercontent.com/31917400/33957833-a90b5754-e03a-11e7-926e-4c7aed1a73b1.jpg" />
 
-#How to group the data and **aggregate information** about these groups or perform group-specific transformation ?
+#### How to group the data and **aggregate information** about these groups or perform group-specific transformation ?
  - For example, we can find mean - fixed acidity, Total_Sulfur_Dioxide, pH, alcohol- for all samples.
  - but WHAT IF we need the mean for each quality rating? For example, mean pH level for all samples of the quality rating of 7? Here, 'groupby()' is used to designate those 'muti-category' variables! 
 ```
@@ -125,13 +125,13 @@ df_wine.groupby(['quality','color']).mean()
 ```
 <img src="https://user-images.githubusercontent.com/31917400/33958565-9fcb4a1c-e03c-11e7-9f09-20c6ae31e39f.jpg" width="350" height="180" />
 
-#**Q1. Is a certain type of wine (red or white) associated with higher quality?** Find the mean quality of each wine type (red and white) with groupby.
+#**>Q1. Is a certain type of wine (red or white) associated with higher quality?** Find the mean quality of each wine type (red and white) with groupby.
 ```
 df_wine.groupby('color').mean()
 ```
 <img src="https://user-images.githubusercontent.com/31917400/33965948-b0ab49d6-e055-11e7-9fe0-86a43d03bca6.jpg" width="350" height="50" />
 
-#**Q2. What level of acidity (pH value) receives the highest average rating?:** 
+#**>Q2. What level of acidity (pH value) receives the highest average rating?:** 
  - This question is more tricky because unlike color, which has clear categories you can group by (red and white), pH is a quantitative variable without clear categories. 
  - However, there is a simple fix to this. You can create a categorical variable from a quantitative variable by creating your own categories. 
  - Pandas **'cut()'** function that let you "cut" data in groups. Using this, create a new column called 'acidity_levels' with these categories:
@@ -166,7 +166,7 @@ df_wine.groupby('acidity_levels')['quality'].mean()
 ```
 <img src="https://user-images.githubusercontent.com/31917400/33966902-33563dca-e059-11e7-8520-3b3acbfea0d5.jpg" width="350" height="60" />
 
-#**Q3. Do wines with higher alcoholic content receive better ratings?** 
+#**>Q3. Do wines with higher alcoholic content receive better ratings?** 
  - To answer this question, use **'query()'** function to create two groups of wine samples: 
    - Low alcohol (samples with an alcohol content less than the median)
    - High alcohol (samples with an alcohol content greater than or equal to the median)
@@ -189,11 +189,11 @@ num_samples == low_alcohol['quality'].count() + high_alcohol['quality'].count() 
 ```
  - Get the mean quality rating for the low alcohol and high alcohol groups
 ```
-low_alcohol['quality'].mean() #5.48
-high_alcohol['quality'].mean() #6.15
+low_alcohol['quality'].mean() #5.48 rating
+high_alcohol['quality'].mean() #6.15 rating
 ```
 
-#Plotting to display our findings regarding the associations b/w quality and some properties
+#### Plotting to display our findings regarding the associations b/w quality and some properties
  - ABOUT--- Q1: Is a certain type of wine (red or white) associated with higher quality?:
 ```
 df_wine.groupby('color')['quality'].mean().plot(kind='bar', title='Avg Quality by Color', color = ['red', 'white'] , alpha=0.7)
@@ -226,8 +226,7 @@ counts.plot(kind='bar', title='Avg Quality by Color', color=colors)
 plt.xlabel('Quality + Colors', fontsize=18) 
 plt.ylabel('Count', fontsize=18)
 ```
-There are clearly more white samples than red samples. so it's hard to make a fair comparison. To balance this out, we can 
-#divide each count by the total count for that color to use "proportions" instead.
+There are clearly more white samples than red samples. so it's hard to make a fair comparison. To balance this out, we can divide each count by the total count for that color to use "proportions" instead.
 ```
 colors=['red', 'white'] 
 
@@ -244,6 +243,7 @@ As can be seen, for the lower ratings -3/4/5, 'red' shows higher proportion. and
 
 <img src="https://user-images.githubusercontent.com/31917400/33968829-f01b2b8e-e061-11e7-99b5-9dd091118b89.jpg" width="600" height="200" />
 
+#### Further customization in Matplotlib. It gives us much more control over our visualizations.
 
 
 

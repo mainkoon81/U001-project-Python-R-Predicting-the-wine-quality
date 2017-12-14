@@ -171,11 +171,13 @@ df_wine.groupby('acidity_levels')['quality'].mean()
    - Low alcohol (samples with an alcohol content less than the median)
    - High alcohol (samples with an alcohol content greater than or equal to the median)
    - Then, find the mean quality rating of each group.
+   - query() cannot deal with the name with space..so ('residual sugar' -> 'residual_sugar') 
  - Get the median amount of alcohol content
 ```
 df_wine['alcohol'].median()
 ```
  - Select samples with alcohol content less than the median and / greater than or equal to the median
+ - If Y has n rows and m columns, then Y.shape = (n,m), Y.shape[0] = n.
 ```
 #low_alcohol = df_wine[df_wine['alcohol'] < 10.3]
 low_alcohol = df_wine.query('alcohol < 10.3')

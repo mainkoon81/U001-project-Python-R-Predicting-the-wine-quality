@@ -352,10 +352,14 @@ plt.xticks(locations, labels)
 
 plt.legend()
 ```
- - Oh, that didn't work because we're missing a red wine value for a the 9 rating. Even though this number is a 0, we need it for 
-#our plot. Run the last two cells after running the cell below.
+ - Oh, that didn't work because we're missing a red wine value for a the 9 rating. Even though this number is a 0, we need it for our plot. Plot again!
 ```
-red_proportions['9'] = 0
-red_proportions
+red_proportions['9'] = 0; red_proportions
 ```
+<img src="https://user-images.githubusercontent.com/31917400/34003736-f1a0c87e-e0ed-11e7-99c3-b929da3f7242.jpg" width="600" height="200" />
+
+
+
+
+
 

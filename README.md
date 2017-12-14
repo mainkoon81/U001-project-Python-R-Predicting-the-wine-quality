@@ -258,7 +258,26 @@ As can be seen, for the lower ratings -3/4/5, 'red' shows higher proportion. and
    - >>> plt.xlabel('blah', fontsize=n)
    - >>> plt.ylabel('blah', fontsize=n)
 
+> Back to the question -  Do wines with higher alcoholic content receive better ratings?
+ - # Create a bar chart with one bar for low alcohol and one bar for high alcohol wine samples.
+```
+a_median = df_wine['alcohol'].median()
+a_low = df_wine.query('alcohol < {}'.format(a_median))
+a_high = df_wine.query('alcohol >= {}'.format(a_median))
 
+mean_qual_low = a_low['quality'].mean()
+mean_qual_high = a_high['quality'].mean()
+
+rangeis = [1, 2]
+heights = [mean_qual_low, mean_qual_high]
+labels = ['Low', 'High']
+plt.bar(rangeis, heights, tick_label=labels)
+
+plt.title('Average Quality Ratings by Alcohol Content')
+plt.xlabel('Alcohol Content')
+plt.ylabel('Average Quality Rating')
+```
+<img src="https://user-images.githubusercontent.com/31917400/33994734-9bbf2c30-e0d3-11e7-9757-701755745dc6.jpg" width="400" height="200" />
 
 
 

@@ -210,13 +210,39 @@ plt.ylabel('Quality', fontsize=18)
 <img src="https://user-images.githubusercontent.com/31917400/33968417-ab0854b0-e05f-11e7-9893-b103b71683be.jpg" width="400" height="160" />
 
  - Improving the plot-II: Get more details on where this difference is coming from.
+   - ..['quality','color'] != ['color','quality']
 ```
-counts = df_wine.groupby(['quality', 'color']).count(); counts # think..['quality','color'] != ['color','quality']
+counts = df_wine.groupby(['quality', 'color']).count(); counts 
 ```
 <img src="https://user-images.githubusercontent.com/31917400/33968607-bfd0f2fc-e060-11e7-985a-55b56f43759a.jpg" width="500" height="200" />
 
+ - Plotting
+```
+colors=['red', 'white'] 
 
+counts = df_wine.groupby(['quality', 'color']).count()['pH']  #the values for all columns are the same...coz it's a count! 
+counts.plot(kind='bar', title='Avg Quality by Color', color=colors)
 
+plt.xlabel('Quality + Colors', fontsize=18) 
+plt.ylabel('Count', fontsize=18)
+```
+There are clearly more white samples than red samples. so it's hard to make a fair comparison. To balance this out, we can 
+#divide each count by the total count for that color to use "proportions" instead.
+```
+colors=['red', 'white'] 
+
+counts = df_wine.groupby(['quality', 'color']).count()['pH']  #the values for all columns are the same...coz it's a count! 
+total = df_wine.groupby('color').count()['pH']
+
+prop = counts / total
+prop.plot(kind='bar', title='Avg Quality by Color', color=colors)
+
+plt.xlabel('Quality + Colors', fontsize=18) 
+plt.ylabel('Proportion', fontsize=18)
+```
+As can be seen, for the lower ratings -3/4/5, 'red' shows higher proportion. and for the higher ratings, the reverse is true. 
+
+<img src="https://user-images.githubusercontent.com/31917400/33968829-f01b2b8e-e061-11e7-99b5-9dd091118b89.jpg" width="600" height="200" />
 
 
 

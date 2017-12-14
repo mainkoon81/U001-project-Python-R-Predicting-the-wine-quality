@@ -306,7 +306,11 @@ plt.ylabel('Average Quality Rating')
 ```
 <img src="https://user-images.githubusercontent.com/31917400/33997727-358992d4-e0dd-11e7-98a1-b68186901437.jpg" width="300" height="200" />
 
-> 
+> Multi-Categorical Plot
+ - How to plot by 'Type' and by 'Quality' at the same time? 
+```
+sns.set_style('darkgrid')
+```
 
 
 

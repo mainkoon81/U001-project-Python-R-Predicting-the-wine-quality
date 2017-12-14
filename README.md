@@ -259,7 +259,7 @@ As can be seen, for the lower ratings -3/4/5, 'red' shows higher proportion. and
    - >>> plt.ylabel('blah', fontsize=n)
 
 > Back to the question -  Do wines with higher alcoholic content receive better ratings?
- - # Create a bar chart with one bar for low alcohol and one bar for high alcohol wine samples.
+ - Create a bar chart with one bar for low alcohol and one bar for high alcohol wine samples.
 ```
 a_median = df_wine['alcohol'].median()
 a_low = df_wine.query('alcohol < {}'.format(a_median))
@@ -277,10 +277,36 @@ plt.title('Average Quality Ratings by Alcohol Content')
 plt.xlabel('Alcohol Content')
 plt.ylabel('Average Quality Rating')
 ```
-<img src="https://user-images.githubusercontent.com/31917400/33994734-9bbf2c30-e0d3-11e7-9757-701755745dc6.jpg" width="400" height="200" />
+<img src="https://user-images.githubusercontent.com/31917400/33994734-9bbf2c30-e0d3-11e7-9757-701755745dc6.jpg" width="300" height="200" />
 
+> Back to the question - What level of acidity receives the highest average rating?
+ - Create a bar chart with a bar for each of the 4 acidity levels.
+```
+df_wine['pH'].describe()
+bin_edges = [2.72,3.11,3.21,3.32,4.01] 
+bin_names = ['very_high','high','medium','low'] 
 
+df_wine['acidity_levels'] = pd.cut(df_wine['pH'], bin_edges, labels=bin_names)
 
+levels = df_wine.groupby('acidity_levels')['quality'].mean(); levels
+
+mean_qual_low =levels[3]
+mean_qual_medium = levels[2]
+mean_qual_high = levels[1]
+mean_qual_veryhigh = levels[0]
+
+rangeis = [1, 2, 3, 4]
+heights = [mean_qual_low, mean_qual_medium, mean_qual_high, mean_qual_veryhigh]
+labels = ['Low','medium','high','very_high']
+plt.bar(rangeis, heights, tick_label=labels)
+
+plt.title('Average Quality Ratings by Acidity level')
+plt.xlabel('Acidity level')
+plt.ylabel('Average Quality Rating')
+```
+<img src="https://user-images.githubusercontent.com/31917400/33997727-358992d4-e0dd-11e7-98a1-b68186901437.jpg" width="300" height="200" />
+
+> 
 
 
 

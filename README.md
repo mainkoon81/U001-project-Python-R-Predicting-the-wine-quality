@@ -31,9 +31,9 @@ Input variables (based on physicochemical tests):
 Output variable (based on sensory data): 
   - 12 - **quality** (score between 0 and 10)
 
-__Investigation:__ What chemical charateristics are most important in predicting the quality of wine? 
+## Investigation:__ What chemical charateristics are most important in predicting the quality of wine? 
 
-__1> import the dataset__
+### 1> import the dataset
 ```
 df_red = pd.read_csv('C:/Users/Minkun/Desktop/classes_1/NanoDeg/1.Data_AN/L3/case01/data/winequality-red.csv', sep=';')
 df_red.info()
@@ -47,7 +47,7 @@ df_white.describe()
 <img src="https://user-images.githubusercontent.com/31917400/33953018-7e646d10-e02b-11e7-92a2-7404bf419d7a.jpg" />
 <img src="https://user-images.githubusercontent.com/31917400/33953024-82897f48-e02b-11e7-9ba6-b98f69e09d52.jpg" />
 
-__2> wrangle the dataset__
+### 2> wrangle the dataset
 
 #### *How many duplicate rows are in the dataset ? 
 ```
@@ -90,7 +90,7 @@ df_white = df_white.rename(columns = {'total sulfur dioxide': 'total_sulfur_diox
 df_wine.to_csv('winequality_edited.csv', index=False)
 ```
 
-__3> Explore the dataset__
+### 3> Explore the dataset
 
 #### *Histogram -Fixed Acidity, Total Sulfur Dioxide, pH, Alcohol..How they look like?
 ```

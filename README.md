@@ -63,10 +63,12 @@ df_white.fillna(0, inplace=True)
 df_white['column'].fillna(df_white['column'].mean(), inplace=True)
 df_white.apply(lambda x: x.fillna(x.mean(), inplace=True), axis=0)
 ```
-#### *How many unique values in 'quality' (**categorical response variable**) column ?
+#### *How many unique values in 'quality' (**categorical response variable**) column and what are they?
 ```
 df_red['quality'].nunique()
 df_white['quality'].nunique()
+df_red['quality'].unique()
+df_white['quality'].unique()
 ```
 #### *Combine two datasets
  - First, add new column telling Red/White to preserve the characteristics.

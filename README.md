@@ -57,7 +57,7 @@ df_white.isnull().sum(axis=0)
 ```
 df_white.dropna(axis=0, how='any', inplace=True)
 ```
-### *How to fill the rows with missing values with 0 or mean?
+#### *How to fill the rows with missing values with 0 or mean?
 ```
 df_white.fillna(0, inplace=True)
 df_white['column'].fillna(df_white['column'].mean(), inplace=True)

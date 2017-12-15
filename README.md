@@ -1,6 +1,6 @@
 # project-01-DA
 
-__Case-01.__ Wine Quality Data Set
+__Case-01.__ Wine Quality Dataset
   - package: Pandas, Numpy, Matplotlib, Seaborn, 
   - func:
 -------------------------------------------------------------------------------------------------------------------------------------  

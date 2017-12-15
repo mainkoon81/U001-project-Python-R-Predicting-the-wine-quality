@@ -45,9 +45,23 @@ df_white.describe()
 ```
 sum(df_white.duplicated())
 ```
-#### *How to drop the rows ?
+#### *How to drop the duplicate rows ?
 ```
 df_white.drop_duplicates(inplace=True)
+```
+#### *How many rows with missing values?
+```
+df_white.isnull().sum(axis=0)
+```
+#### *How to drop the rows with missing values?
+```
+df_white.dropna(axis=0, how='any', inplace=True)
+```
+### *How to fill the rows with missing values with 0 or mean?
+```
+df_white.fillna(0, inplace=True)
+df_white['column'].fillna(df_white['column'].mean(), inplace=True)
+df_white.apply(lambda x: x.fillna(x.mean(), inplace=True), axis=0)
 ```
 #### *How many unique values in 'quality' (**categorical response variable**) column ?
 ```

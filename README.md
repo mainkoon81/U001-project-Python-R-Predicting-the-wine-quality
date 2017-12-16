@@ -65,6 +65,8 @@ df_white.apply(lambda x: x.fillna(x.mean(), inplace=True), axis=0)
 ```
 #### *How many unique values in 'quality' (**categorical response variable**) column and what are they?
 ```
+df_red['quality'].value_counts()
+
 df_red['quality'].nunique()
 df_white['quality'].nunique()
 df_red['quality'].unique()

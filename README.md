@@ -95,7 +95,7 @@ df_white = df_white.rename(columns = {'total sulfur dioxide': 'total_sulfur_diox
 ```
 #### *Save your newly combined dataframe as winequality_edited.csv. Remember, set index=False to avoid saving with an unnamed column!
 ```
-df_wine.to_csv('winequality_edited.csv', index=False)
+df_wine.to_csv('~path~/winequality_edited.csv', index=False)
 ```
 
 ### 3> Explore the dataset

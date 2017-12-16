@@ -70,7 +70,7 @@ df_white['quality'].nunique()
 df_red['quality'].unique()
 df_white['quality'].unique()
 ```
-#### *Combine two datasets
+#### *Prepare to combine two datasets
  - First, add new column telling Red/White to preserve the characteristics.
  - Creating two arrays using numpy as long as the number of rows in the red and white dataframes that repeat the value “red” or “white” and add that as a column into each dataframe.
 ```

@@ -192,10 +192,12 @@ low_alcohol = df_wine.query('alcohol < 10.3')
 
 #high_alcohol = df_wine[df_wine['alcohol'] >= 10.3]
 high_alcohol = df_wine.query('alcohol >= 10.3')
+```
 
-# ensure these queries included each sample exactly once
-num_samples = df_wine.shape[0] #total num of rows? 
-num_samples == low_alcohol['quality'].count() + high_alcohol['quality'].count() # should be True
+ - Ensure these queries included each sample exactly once
+```
+num_samples = df_wine.shape[0]   #total num of rows? 
+num_samples == low_alcohol['quality'].count() + high_alcohol['quality'].count()   #should be True
 ```
  - Get the mean quality rating for the low alcohol and high alcohol groups
 ```

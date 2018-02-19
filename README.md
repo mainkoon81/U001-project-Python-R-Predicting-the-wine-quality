@@ -135,7 +135,7 @@ df_wine.groupby(['quality','color']).mean()
 ```
 <img src="https://user-images.githubusercontent.com/31917400/33958565-9fcb4a1c-e03c-11e7-9f09-20c6ae31e39f.jpg" width="350" height="180" />
 
-> Q1. Is a certain type of wine (red or white) associated with higher quality?** 
+> Q1. Is a certain type of wine (red or white) associated with higher quality?** (Grouping by the Categorical)
  - Find the mean quality of each wine type (red and white) with groupby.
 ```
 df_wine.groupby('color').mean()
@@ -145,13 +145,15 @@ df_wine.groupby('color').mean()
 > Hey, it gives a dataset !
 
 #### *Plotting to display our findings regarding the associations b/w quality and some properties
+ - Plotting the **mean-'quality'** by 'color'
 ```
 df_wine.groupby('color')['quality'].mean().plot(kind='bar', title='Avg Quality by Color', color = ['red', 'white'] , alpha=0.7)
 ```
  - Improving the plot-I: Set xlabel, ylabel...=> plt is useful!
 ```
-colors=['red', 'white'] 
 color_means = df_wine.groupby('color')['quality'].mean()
+
+colors=['red', 'white'] 
 color_means.plot(kind='bar', title='Avg Quality by Color', color = colors) #from the pd-plot
 
 plt.xlabel('Colors', fontsize=18) #from the plt-plot
@@ -160,7 +162,7 @@ plt.ylabel('Quality', fontsize=18)
 <img src="https://user-images.githubusercontent.com/31917400/33968417-ab0854b0-e05f-11e7-9893-b103b71683be.jpg" width="400" height="160" />
 
  - Improving the plot-II: Get more details on where this difference is coming from.
-   - ..['quality','color'] != ['color','quality']
+   - Note: Care the order! For example, ['quality','color'] differs from ['color','quality']
 ```
 counts = df_wine.groupby(['quality', 'color']).count(); counts 
 ```
@@ -168,11 +170,11 @@ counts = df_wine.groupby(['quality', 'color']).count(); counts
 
 > Hey, it gives a dataset !
 
- - Plotting
+ - Plotting the property **'pH'count** by 'quality' and 'color'
 ```
-colors=['red', 'white'] 
-
 counts = df_wine.groupby(['quality', 'color']).count()['pH']  #the values for all columns are the same...coz it's a count! 
+
+colors=['red', 'white'] 
 counts.plot(kind='bar', title='Avg Quality by Color', color=colors)
 
 plt.xlabel('Quality + Colors', fontsize=18) 
@@ -209,7 +211,7 @@ As can be seen, for the lower ratings -3/4/5, 'red' shows higher proportion. and
    - >>> plt.ylabel('blah', fontsize=n)
 #######################################################################################################
 
-> Q2. What level of acidity (pH value) receives the highest average rating?:** 
+> Q2. What level of acidity (pH value) receives the highest average rating?:** (Grouping by the Numerical)
  - This question is more tricky because unlike color, which has clear categories you can group by (red and white), pH is a quantitative variable without clear categories. 
  - However, there is a simple fix to this. You can create a categorical variable from a quantitative variable by creating your own categories. 
  - Pandas **'cut()'** function that let you "cut" data in groups. Using this, create a new column called 'acidity_levels' with these categories:
@@ -252,15 +254,15 @@ df_wine.groupby('acidity_levels')['quality'].mean()
 df_wine['pH'].describe()
 bin_edges = [2.72,3.11,3.21,3.32,4.01] 
 bin_names = ['very_high','high','medium','low'] 
-
 df_wine['acidity_levels'] = pd.cut(df_wine['pH'], bin_edges, labels=bin_names)
 
-levels = df_wine.groupby('acidity_levels')['quality'].mean(); levels
 
+levels = df_wine.groupby('acidity_levels')['quality'].mean()
 mean_qual_low =levels[3]
 mean_qual_medium = levels[2]
 mean_qual_high = levels[1]
 mean_qual_veryhigh = levels[0]
+
 
 rangeis = [1, 2, 3, 4]
 heights = [mean_qual_low, mean_qual_medium, mean_qual_high, mean_qual_veryhigh]
@@ -292,7 +294,6 @@ low_alcohol = df_wine.query('alcohol < 10.3')
 #high_alcohol = df_wine[df_wine['alcohol'] >= 10.3]
 high_alcohol = df_wine.query('alcohol >= 10.3')
 ```
-
  - Ensure these queries included each sample exactly once
 ```
 num_samples = df_wine.shape[0]   #total num of rows? 

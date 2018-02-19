@@ -142,6 +142,8 @@ df_wine.groupby('color').mean()
 ```
 <img src="https://user-images.githubusercontent.com/31917400/33965948-b0ab49d6-e055-11e7-9fe0-86a43d03bca6.jpg" width="350" height="50" />
 
+> Hey, it gives a dataset !
+
 #### *Plotting to display our findings regarding the associations b/w quality and some properties
 ```
 df_wine.groupby('color')['quality'].mean().plot(kind='bar', title='Avg Quality by Color', color = ['red', 'white'] , alpha=0.7)
@@ -163,6 +165,8 @@ plt.ylabel('Quality', fontsize=18)
 counts = df_wine.groupby(['quality', 'color']).count(); counts 
 ```
 <img src="https://user-images.githubusercontent.com/31917400/33968607-bfd0f2fc-e060-11e7-985a-55b56f43759a.jpg" width="500" height="200" />
+
+> Hey, it gives a dataset !
 
  - Plotting
 ```
@@ -239,6 +243,8 @@ df_wine.head()
 df_wine.groupby('acidity_levels')['quality'].mean()
 ```
 <img src="https://user-images.githubusercontent.com/31917400/33966902-33563dca-e059-11e7-8520-3b3acbfea0d5.jpg" width="350" height="60" />
+
+> Hey, it gives a dataset !
 
 #### *Plotting to display our findings regarding the associations b/w quality and some properties
  - Create a bar chart with a bar for each of the 4 acidity levels.

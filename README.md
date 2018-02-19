@@ -175,7 +175,7 @@ counts = df_wine.groupby(['quality', 'color']).count(); counts
 counts = df_wine.groupby(['quality', 'color']).count()['pH']  # why pH? The values for all columns are the same...coz it's a count! 
 
 colors=['red', 'white'] 
-counts.plot(kind='bar', title='Avg Quality by Color', color=colors)
+counts.plot(kind='bar', title='Avg Quality by Color_A', color=colors)
 
 plt.xlabel('Quality + Colors', fontsize=18) 
 plt.ylabel('Count', fontsize=18)
@@ -188,7 +188,7 @@ counts = df_wine.groupby(['quality', 'color']).count()['pH']  # why pH? The valu
 total = df_wine.groupby('color').count()['pH']
 
 prop = counts / total
-prop.plot(kind='bar', title='Avg Quality by Color', color=colors)
+prop.plot(kind='bar', title='Avg Quality by Color_B', color=colors)
 
 plt.xlabel('Quality + Colors', fontsize=18) 
 plt.ylabel('Proportion', fontsize=18)

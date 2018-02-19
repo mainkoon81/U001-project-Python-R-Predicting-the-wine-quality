@@ -275,7 +275,7 @@ plt.ylabel('Average Quality Rating')
 ```
 <img src="https://user-images.githubusercontent.com/31917400/33997727-358992d4-e0dd-11e7-98a1-b68186901437.jpg" width="300" height="200" />
 
-> Q3. Do wines with higher alcoholic content receive better ratings?** 
+> Q3. Do wines with higher alcoholic content receive better ratings?** (Groupying by splitting the dataset)
  - To answer this question, use **'query()'** function to create two groups of wine samples: 
    - Low alcohol (samples with an alcohol content less than the median)
    - High alcohol (samples with an alcohol content greater than or equal to the median)

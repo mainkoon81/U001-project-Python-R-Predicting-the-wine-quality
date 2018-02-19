@@ -170,9 +170,9 @@ counts = df_wine.groupby(['quality', 'color']).count(); counts
 
 > Hey, it gives a dataset !
 
- - Plotting the property **'pH'count** by 'quality' and 'color'
+ - Plotting the **counts** by 'quality' and 'color'
 ```
-counts = df_wine.groupby(['quality', 'color']).count()['pH']  #the values for all columns are the same...coz it's a count! 
+counts = df_wine.groupby(['quality', 'color']).count()['pH']  # why pH? The values for all columns are the same...coz it's a count! 
 
 colors=['red', 'white'] 
 counts.plot(kind='bar', title='Avg Quality by Color', color=colors)
@@ -184,7 +184,7 @@ There are clearly more white samples than red samples. so it's hard to make a fa
 ```
 colors=['red', 'white'] 
 
-counts = df_wine.groupby(['quality', 'color']).count()['pH']  #the values for all columns are the same...coz it's a count! 
+counts = df_wine.groupby(['quality', 'color']).count()['pH']  # why pH? The values for all columns are the same...coz it's a count! 
 total = df_wine.groupby('color').count()['pH']
 
 prop = counts / total

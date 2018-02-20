@@ -246,8 +246,6 @@ df_wine.groupby('acidity_levels')['quality'].mean()
 ```
 <img src="https://user-images.githubusercontent.com/31917400/33966902-33563dca-e059-11e7-8520-3b3acbfea0d5.jpg" width="350" height="60" />
 
-> Hey, it gives a dataset !
-
 #### *Plotting to display our findings regarding the associations b/w quality and some properties
  - Create a bar chart with a bar for each of the 4 acidity levels.
 ```

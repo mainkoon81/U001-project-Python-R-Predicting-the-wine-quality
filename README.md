@@ -248,7 +248,7 @@ df_wine.groupby('acidity_levels')['quality'].mean()
 <img src="https://user-images.githubusercontent.com/31917400/33966902-33563dca-e059-11e7-8520-3b3acbfea0d5.jpg" width="350" height="60" />
 
 #### *Plotting to display our findings regarding the associations b/w quality and some properties
- - Create a bar chart with a bar for each of the 4 acidity levels.
+ - Create a bar chart of the mean quality with a bar for each of the 4 acidity levels.
 ```
 df_wine['pH'].describe()
 bin_edges = [2.72,3.11,3.21,3.32,4.01] 
@@ -304,7 +304,7 @@ low_alcohol['quality'].mean() #5.48 rating
 high_alcohol['quality'].mean() #6.15 rating
 ```
 #### *Plotting to display our findings regarding the associations b/w quality and some properties
- - Create a bar chart with one bar for low alcohol and one bar for high alcohol wine samples.
+ - Create a bar chart of the mean quality with one bar for low alcohol and one bar for high alcohol wine samples.
 ```
 a_median = df_wine['alcohol'].median()
 

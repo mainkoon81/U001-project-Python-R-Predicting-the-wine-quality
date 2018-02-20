@@ -307,6 +307,7 @@ high_alcohol['quality'].mean() #6.15 rating
  - Create a bar chart with one bar for low alcohol and one bar for high alcohol wine samples.
 ```
 a_median = df_wine['alcohol'].median()
+
 a_low = df_wine.query('alcohol < {}'.format(a_median))
 a_high = df_wine.query('alcohol >= {}'.format(a_median))
 

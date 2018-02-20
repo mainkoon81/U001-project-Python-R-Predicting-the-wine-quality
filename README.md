@@ -333,8 +333,9 @@ plt.ylabel('Average Quality Rating')
 sns.set_style('darkgrid')
 ```
 > Create arrays for red bar heights white bar heights. There's a bar for each combination of 'color' and 'quality rating'. Each bar's height is based on the proportion of samples of that color with that quality rating.
-#### 1. Red bar proportions = counts for each quality rating / total # of red samples
-#### 2. White bar proportions = counts for each quality rating / total # of white samples
+ - For example:
+   - 1. Red bar proportions = counts for each quality rating / total # of red samples
+   - 2. White bar proportions = counts for each quality rating / total # of white samples
  
  - Get counts for each rating and color
 ``` 

@@ -184,9 +184,11 @@ plt.ylabel('Count', fontsize=18)
 ```
 There are clearly more white samples than red samples. so it's hard to make a fair comparison. To balance this out, we can divide each count by the total count for that color to use "proportions" instead.
 ```
+counts = df_wine.groupby(['quality', 'color']).count()['pH'] 
 total = df_wine.groupby('color').count()['pH']
 prop = counts / total
 
+colors=['red', 'white'] 
 prop.plot(kind='bar', title='Avg Quality by Color_B', color=colors)
 
 plt.xlabel('Quality + Colors', fontsize=18) 

@@ -102,6 +102,7 @@ df_wine.to_csv('~path~/winequality_edited.csv', index=False)
 
 ### 3> Explore the dataset
 
+## (A) Univariate Plot
 #### *Histogram -Fixed Acidity, Total Sulfur Dioxide, pH, Alcohol..How they look like?
 ```
 df_wine['fixed acidity'].plot(kind='hist')
@@ -135,6 +136,7 @@ df_wine.groupby(['quality','color']).mean()
 ```
 <img src="https://user-images.githubusercontent.com/31917400/33958565-9fcb4a1c-e03c-11e7-9f09-20c6ae31e39f.jpg" width="350" height="180" />
 
+## (B) Bivariate Plot
 > Q1. Is a certain type of wine (red or white) associated with higher quality?** (Grouping by the Categorical)
  - Find the mean quality of each wine type (red and white) with groupby.
 ```
@@ -325,7 +327,7 @@ plt.ylabel('Average Quality Rating')
 
 
 
-> Multi-Categorical Plot
+## (C) Multivariate Plot
  - How to plot by 'Type' and by 'Quality' at the same time? 
 ```
 sns.set_style('darkgrid')

@@ -328,7 +328,7 @@ plt.ylabel('Average Quality Rating')
 
 
 ## (C) Multivariate Plot
- - How to plot by 'color' and by 'quality' at the same time? 
+ - How to plot by 'color' and by 'quality' at the same time? (Not using Pandas' plot, but using 'plt') 
 ```
 sns.set_style('darkgrid')
 ```

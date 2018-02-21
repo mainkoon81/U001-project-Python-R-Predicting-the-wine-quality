@@ -198,6 +198,7 @@ As can be seen, for the lower ratings -3/4/5, 'red' shows higher proportion. and
 
 <img src="https://user-images.githubusercontent.com/31917400/33968829-f01b2b8e-e061-11e7-99b5-9dd091118b89.jpg" width="600" height="200" />
 
+We just plotted using pandas' `plot()`
 #### *Further customization in Matplotlib. It gives us much more control over our visualizations. ####
 > Creating a **Bar Chart** Using Matplotlib ##
  - 1) There are two required arguments in pyplot's bar function: the "x-coordinates" of the bars, and the "heights" of the bars.

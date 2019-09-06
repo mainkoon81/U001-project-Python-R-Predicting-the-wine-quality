@@ -1,4 +1,4 @@
-# project-01-DA
+# 01-Data Analysis
 
 __Case-01.__ Wine Quality Dataset
   - package: Pandas, Numpy, Matplotlib, Seaborn, 
